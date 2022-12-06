@@ -1,6 +1,6 @@
 import { textAreaTwoSignal } from "../signals";
 
-export default function Binary({ text }) {
+export default function binary({ text }) {
   const ARR_TEXT = text.split('');
   let resultBinaryNum = [];
 
