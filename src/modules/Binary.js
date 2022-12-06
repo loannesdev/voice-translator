@@ -14,12 +14,12 @@ export default function Binary({ text }) {
 
       if (word.length === 8) {
         word.reverse()
-        resultBinaryNum.push(word.join('', ','))
+        resultBinaryNum.push(word.join(''))
 
         break;
       };
     }
   })
 
-  textAreaTwoSignal.value = resultBinaryNum.join(' ', ',');
+  textAreaTwoSignal.value = resultBinaryNum.join(' ');
 }

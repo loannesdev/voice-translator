@@ -4,6 +4,7 @@ import { ReactComponent as Ibeacon } from '../assets/icons/ibeacon.svg';
 import { ReactComponent as InputLatinLetters } from '../assets/icons/input-latin-letters.svg';
 import { ReactComponent as RegionalIndicatorZ } from '../assets/icons/regional-indicator-z.svg';
 import binary from '../modules/binary';
+import radioAlphabet from '../modules/radioAlphabet';
 import { optionsSignal, textAreaOneSignal, textAreaTwoSignal } from '../signals';
 
 const OPT_ICONS_CLASS = 'h-10 w-10';
@@ -26,7 +27,9 @@ export const OPTIONS = [
     id: 3,
     text: "Alfabeto radiofónico",
     icon: <RegionalIndicatorZ className={OPT_ICONS_CLASS} />,
-    click: () => { textAreaTwoSignal.value = '' }
+    click: () => {
+      radioAlphabet({ text: textAreaOneSignal.value });
+    }
   },
   {
     id: 4,

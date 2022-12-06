@@ -1,13 +1,14 @@
 {
   "name": "voice-translator",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "host": "vite --host"
+    "host": "vite --host",
+    "phoenix:windows": "del /f package-lock.json && rd /s /q node_modules && npm install"
   },
   "dependencies": {
     "@preact/signals": "1.1.2",

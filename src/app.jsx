@@ -1,59 +1,73 @@
-import { render } from 'preact';
 import { useRef, useState } from 'preact/hooks';
-import { toast, Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import { ReactComponent as Broom } from './assets/icons/broom.svg';
 import { ReactComponent as Copy } from './assets/icons/copy.svg';
 import { ReactComponent as SpeakingHead } from './assets/icons/speaking-head.svg';
 import { ReactComponent as StudioMicrophone } from './assets/icons/studio-microphone.svg';
 import Options, { OPTIONS } from './components/Options';
-import './index.css';
 import { optionsSignal, textAreaOneSignal, textAreaTwoSignal } from './signals/index';
 
 const UTILS_ICONS_CLASS = 'h-9 w-9';
 const UTILS_BUTTONS_CLASS = 'outline-sky-500 outline outline-1 rounded-xl active:bg-blue-200';
 
-function App() {
+const recognition = new webkitSpeechRecognition();
+recognition.lang = "es-ES"
+recognition.continuous = true
+
+const spellText = (text) => {
+  const voices = speechSynthesis.getVoices();
+  let utterance = new SpeechSynthesisUtterance(text);
+  utterance.voice = voices[228 || 227]; //227 - 228 voces de español Colombia
+
+  speechSynthesis.speak(utterance);
+}
+
+export default function App() {
   const [hearing, setHearing] = useState(false)
-  const recognition = new (webkitSpeechRecognition)();
   const textAreaOneRef = useRef();
   const textAreaTwoRef = useRef();
-
-  recognition.lang = "es-ES"
-  recognition.continuous = true
+  const [msg, setMsg] = useState('');
 
   recognition.onresult = evt => {
     const LAST_VALUE = Object.keys(evt.results).length - 1
     const TEXT = evt.results[LAST_VALUE][0].transcript;
 
     textAreaOneSignal.value = TEXT;
-    if (optionsSignal.value !== null) OPTIONS.find(elm => elm.id === optionsSignal.value.id).click();
-
+    if (optionsSignal.value !== null)
+      OPTIONS
+        .find(elm => elm.id === optionsSignal.value.id)
+        .click();
   }
-
   recognition.onstart = () => {
-    setHearing(true)
+    setHearing(true);
   }
-
-  recognition.onend = () => {
-    setHearing(false)
+  recognition.onend = (evt) => {
+    setHearing(false);
+    toast(evt);
   }
-
-  recognition.onnomatch = () => {
-    console.log('I didnt recognise that color.')
-    setHearing(false)
+  recognition.onnomatch = (evt) => {
+    setHearing(false);
+    toast(evt);
   }
-
-  recognition.onerror = (event) => {
-    console.log('Error: ' + event.error)
-    setHearing(false)
+  recognition.onerror = (evt) => {
+    setHearing(false);
+    toast(evt.error);
   }
-
-  recognition.onaudioend = () => setHearing(false);
-  recognition.onsoundend = () => setHearing(false);
-  recognition.onspeechend = () => setHearing(false);
+  recognition.onaudioend = (evt) => {
+    setHearing(false);
+    toast(evt);
+  };
+  recognition.onsoundend = (evt) => {
+    setHearing(false);
+    toast(evt);
+  };
+  recognition.onspeechend = (evt) => {
+    setHearing(false);
+    setMsg(evt);
+  };
 
   return (
-    <main className='bg-white grid transition-all pt-16 pb-5 p-10 auto-rows-min gap-9 sm:px-32 md:px-48 lg:px-60 xl:px-[30rem] h-screen'>
+    <main className='bg-white grid transition-all py-16 px-10 auto-rows-min gap-9 sm:px-32 md:px-48 lg:px-60 xl:px-[30rem]'>
       <Options />
 
       <section className='w-full flex gap-4 flex-wrap'>
@@ -87,7 +101,7 @@ function App() {
                 <button
                   className={UTILS_BUTTONS_CLASS}
                   onClick={() => {
-                    // Speech text
+                    spellText(textAreaOneSignal.value)
                   }}
                   title='Leer texto'
                 >
@@ -175,11 +189,3 @@ function App() {
     </main>
   )
 }
-
-render(
-  <>
-    <Toaster />
-    <App />
-  </>,
-  document.getElementById('app')
-);
