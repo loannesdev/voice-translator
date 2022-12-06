@@ -3,8 +3,8 @@ import { ReactComponent as FloppyDisk } from '../assets/icons/floppy-disk.svg';
 import { ReactComponent as Ibeacon } from '../assets/icons/ibeacon.svg';
 import { ReactComponent as InputLatinLetters } from '../assets/icons/input-latin-letters.svg';
 import { ReactComponent as RegionalIndicatorZ } from '../assets/icons/regional-indicator-z.svg';
-import binary from '../modules/binary';
-import radioAlphabet from '../modules/radioAlphabet';
+import binary from '../modules/binaryModule';
+import radioAlphabet from '../modules/radioAlphabetModule';
 import { optionsSignal, textAreaOneSignal, textAreaTwoSignal } from '../signals';
 
 const OPT_ICONS_CLASS = 'h-10 w-10';
