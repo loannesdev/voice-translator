@@ -1,13 +1,13 @@
-import React from 'react';
-import { ReactComponent as FloppyDisk } from '../assets/icons/floppy-disk.svg';
-import { ReactComponent as Ibeacon } from '../assets/icons/ibeacon.svg';
-import { ReactComponent as InputLatinLetters } from '../assets/icons/input-latin-letters.svg';
-import { ReactComponent as RegionalIndicatorZ } from '../assets/icons/regional-indicator-z.svg';
-import binary from '../modules/binaryModule';
-import radioAlphabet from '../modules/radioAlphabetModule';
-import { optionsSignal, textAreaOneSignal, textAreaTwoSignal } from '../signals';
+import React from "preact";
+import { ReactComponent as FloppyDisk } from "../assets/icons/floppy-disk.svg";
+import { ReactComponent as Ibeacon } from "../assets/icons/ibeacon.svg";
+import { ReactComponent as InputLatinLetters } from "../assets/icons/input-latin-letters.svg";
+import { ReactComponent as RegionalIndicatorZ } from "../assets/icons/regional-indicator-z.svg";
+import binary from "../modules/binaryModule";
+import radioAlphabet from "../modules/radioAlphabetModule";
+import { optionsSignal, textAreaOneSignal, textAreaTwoSignal } from "../signals";
 
-const OPT_ICONS_CLASS = 'h-10 w-10';
+const OPT_ICONS_CLASS = "h-10 w-10";
 export const OPTIONS = [
   {
     id: 1,
@@ -35,12 +35,14 @@ export const OPTIONS = [
     id: 4,
     text: "Código morse",
     icon: <Ibeacon className={OPT_ICONS_CLASS} />,
-    click: () => { textAreaTwoSignal.value = '' }
+    click: () => {
+      textAreaTwoSignal.value = "";
+    }
   }
 ];
 
 const classOption = (elm) => {
-  const SELECTED_CLASS_TW = 'bg-blue-200 border-transparent text-blue-800';
+  const SELECTED_CLASS_TW = "bg-blue-200 border-transparent text-blue-800";
 
   if (optionsSignal.value !== null && elm.id === optionsSignal?.value?.id) {
     return SELECTED_CLASS_TW;
@@ -49,7 +51,7 @@ const classOption = (elm) => {
   if (optionsSignal.value === null && elm.id === 1) {
     return SELECTED_CLASS_TW;
   }
-}
+};
 
 export default function Options() {
   return (
@@ -71,10 +73,10 @@ export default function Options() {
                 {elm.icon}
                 {elm.text}
               </button>
-            )
+            );
           })
         }
       </article>
     </section>
-  )
+  );
 }

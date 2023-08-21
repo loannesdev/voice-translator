@@ -1,0 +1,17 @@
+{
+  "extends": "./node_modules/semistandard/eslintrc.json",
+  "rules": {
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ]
+  }
+}
