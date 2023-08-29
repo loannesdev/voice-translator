@@ -12,6 +12,19 @@
         "named": "never",
         "asyncArrow": "always"
       }
+    ],
+    "jsx-quotes": [
+      "error",
+      "prefer-double"
+    ],
+    "new-cap": [
+      "error",
+      {
+        "newIsCap": false
+      }
     ]
+  },
+  "env": {
+    "browser": true
   }
 }
