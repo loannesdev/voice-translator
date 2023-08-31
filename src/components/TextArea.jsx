@@ -2,11 +2,11 @@ import toast from "react-hot-toast";
 import { ReactComponent as Broom } from "../assets/icons/broom.svg";
 import { ReactComponent as Duplicate } from "../assets/icons/duplicate.svg";
 import { ReactComponent as SpeakerHighVolume } from "../assets/icons/speaker-high-volume.svg";
-import { spellText } from "../services/speech-synthesis";
+import { readText } from "../services/speech-synthesis";
 import store from "../store";
 
 const iconsClass = "h-9 w-9";
-const buttonsClass = "outline-blue-500 outline outline-1 rounded active:bg-blue-200";
+const buttonsClass = "border border-sky-300 rounded active:bg-zinc-100 dark:active:bg-[#fafafa1a]";
 
 export default function TextArea({ text, flag }) {
   return (
@@ -40,7 +40,7 @@ export default function TextArea({ text, flag }) {
               <button
                 className={buttonsClass}
                 onClick={() => {
-                  spellText(text);
+                  readText(text);
                 }}
                 title="Leer texto"
               >
@@ -51,7 +51,7 @@ export default function TextArea({ text, flag }) {
         }
       </div>
 
-      <textarea className="outline outline-1 outline-sky-500 outline-solid rounded px-2 py-1 min-h-[200px] transition-all w-full">
+      <textarea disabled className="border border-sky-300 rounded px-2 py-1 min-h-[200px] transition-all w-full dark:bg-[#fafafa1a]">
         {text}
       </textarea>
     </section>

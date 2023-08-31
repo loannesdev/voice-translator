@@ -2,8 +2,8 @@ import store from "../store";
 import { TRANSLATE_OPTIONS } from "../utils/constans";
 
 const options = TRANSLATE_OPTIONS;
-const buttonClass = "h-min outline outline-blue-500 outline-1 rounded py-0.5 px-2 font-semibold gap-0.5";
-const buttonSelectedClass = "bg-blue-200 text-blue-700";
+const buttonClass = "h-min border border-zinc-200 hover:bg-zinc-100 rounded py-0.5 px-2 gap-0.5 dark:bg-[#fafafa26] dark:hover:border-sky-300";
+const buttonSelectedClass = "border-sky-300 font-medium dark:text-sky-300";
 
 export default function Options() {
   return (
@@ -23,7 +23,7 @@ export default function Options() {
               >
                 <div className="flex items-center gap-0.5">
                   {icon}
-                  <span className="font-normal tracking-wide leading-none">{text}</span>
+                  <span className="tracking-wide leading-none">{text}</span>
                 </div>
               </button>
             );
