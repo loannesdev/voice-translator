@@ -43,8 +43,7 @@ export const TRANSLATE_OPTIONS = [
   {
     keyWord: "text",
     text: "Texto",
-    icon: <InputLatinLettersIcon className={translateOptionsIcons} />,
-    action: (param) => { console.log(param); }
+    icon: <InputLatinLettersIcon className={translateOptionsIcons} />
   },
   {
     keyWord: "binary",

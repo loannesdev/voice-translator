@@ -11,45 +11,53 @@ const buttonsClass = "border border-sky-300 rounded active:bg-zinc-100 dark:acti
 export default function TextArea({ text, flag }) {
   return (
     <section className="flex gap-1.5">
-      <div className="flex flex-col gap-1.5">
-        <button
-          onClick={() => {
-            navigator.clipboard.writeText(text);
-            toast("Texto copiado");
-          }}
-          className={buttonsClass}
-          title="Copiar texto"
-        >
-          <Duplicate className={iconsClass} />
-        </button>
+      {
+        text && (
+          <div className="flex flex-col gap-1.5">
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(text);
+                toast("Texto copiado");
+              }}
+              className={buttonsClass}
+              title="Copiar texto"
+            >
+              <Duplicate className={iconsClass} />
+            </button>
 
-        {
-          flag === "first" && (
-            <>
-              <button
-                onClick={() => {
-                  store.firstText.value = "";
-                  toast("Texto eliminado");
-                }}
-                className={buttonsClass}
-                title="Limpiar texto"
-              >
-                <Broom className={iconsClass} />
-              </button>
+            {
+              flag === "first" && (
+                <>
+                  <button
+                    onClick={() => {
+                      if (!store.firstText.value.length) {
+                        return;
+                      }
 
-              <button
-                className={buttonsClass}
-                onClick={() => {
-                  readText(text);
-                }}
-                title="Leer texto"
-              >
-                <SpeakerHighVolume className={iconsClass} />
-              </button>
-            </>
-          )
-        }
-      </div>
+                      store.firstText.value = "";
+                      toast("Texto eliminado");
+                    }}
+                    className={buttonsClass}
+                    title="Limpiar texto"
+                  >
+                    <Broom className={iconsClass} />
+                  </button>
+
+                  <button
+                    className={buttonsClass}
+                    onClick={() => {
+                      readText(text);
+                    }}
+                    title="Leer texto"
+                  >
+                    <SpeakerHighVolume className={iconsClass} />
+                  </button>
+                </>
+              )
+            }
+          </div>
+        )
+      }
 
       <textarea disabled className="border border-sky-300 rounded px-2 py-1 min-h-[200px] transition-all w-full dark:bg-[#fafafa1a]">
         {text}

@@ -3,7 +3,7 @@ import { ReactComponent as StudioMicrophone } from "../assets/icons/studio-micro
 import Header from "../components/Header";
 import Options from "../components/Options";
 import TextArea from "../components/TextArea";
-import { startListening, stopListening } from "../services/speech-recognition";
+import { speechRecognitionSupport, startListening, stopListening } from "../services/speech-recognition";
 import store from "../store";
 import { TRANSLATE_OPTIONS } from "../utils/constans";
 
@@ -29,14 +29,17 @@ export default function App() {
           <section className="flex gap-3 flex-col">
             <div className="flex gap-2 items-center max-sm:flex-wrap">
               <button
-                className="bg-blue-600 text-slate-50 w-full rounded p-3 font-extrabold active:bg-blue-500 transition-colors hover:bg-blue-700 leading-none"
+                className="bg-blue-600 text-slate-50 w-full rounded p-3 font-extrabold enabled:active:bg-blue-500 transition-colors enabled:hover:bg-blue-700 leading-none disabled:opacity-30"
                 onClick={() => {
                   store.isHearing.value
                     ? stopListening()
                     : startListening();
                 }}
+                disabled={speechRecognitionSupport() ? undefined : "true"}
               >
-                {store.isHearing.value ? "Terminar de escuchar" : "Empezar a escuchar"}
+                {
+                  store.isHearing.value ? "Terminar de escuchar" : "Empezar a escuchar"
+                }
               </button>
 
               {
@@ -62,6 +65,13 @@ export default function App() {
             )
           }
         </section>
+
+        {
+          !speechRecognitionSupport() &&
+          (
+            <p className="font-bold text-red-500 text-center text-2xl">Este navegador es incombatible</p>
+          )
+        }
       </main>
     </>
   );
