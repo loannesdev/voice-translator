@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 import store from "../store";
-import { DARK_MODE_OPTIONS } from "../utils/constans";
+import { DARK_MODE_OPTIONS } from "../utils/constants";
 
 export default function Header() {
   const [isDropdownActive, setIsDropdownActive] = useState(false);

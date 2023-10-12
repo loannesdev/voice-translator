@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import store from "../store";
 
 let recognition = null;
@@ -7,6 +8,7 @@ export const speechRecognitionSupport = () => {
 };
 
 if (speechRecognitionSupport()) {
+  // eslint-disable-next-line no-undef
   recognition = new webkitSpeechRecognition();
 
   recognition.lang = "es-ES";
@@ -31,6 +33,10 @@ if (speechRecognitionSupport()) {
 
     store.firstText.value = newText;
   };
+
+  recognition.onerror = (event) => {
+    toast.error(`Ha ocurrido un error al escuchar el micrófono ${event.message}`)
+  }
 }
 
 export const startListening = () => {

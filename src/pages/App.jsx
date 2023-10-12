@@ -5,7 +5,7 @@ import Options from "../components/Options";
 import TextArea from "../components/TextArea";
 import { speechRecognitionSupport, startListening, stopListening } from "../services/speech-recognition";
 import store from "../store";
-import { TRANSLATE_OPTIONS } from "../utils/constans";
+import { TRANSLATE_OPTIONS } from "../utils/constants";
 
 const handlerSpeechConverter = () => {
   const optSelected = TRANSLATE_OPTIONS.find((elm) => elm.keyWord === store.option.value);

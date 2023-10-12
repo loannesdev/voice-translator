@@ -1,5 +1,5 @@
 import store from "../store";
-import { DARK_MODE_OPTIONS } from "./constans";
+import { DARK_MODE_OPTIONS } from "./constants";
 
 const systemTheme = () => {
   if (DARK_MODE_OPTIONS.system.key === store.darkMode.value?.key) {
@@ -34,12 +34,12 @@ export const initializeDarkTheme = () => {
     store.darkMode.value = DARK_MODE_OPTIONS.light;
   }
 
-  store.darkMode.subscribe(({ key }) => {
+  store.darkMode.subscribe((store) => {
     const [selectedKey] = Object
       .entries(DARK_MODE_OPTIONS)
-      .find(([_, value]) => value.key === key);
+      .find(([, value]) => value.key === store.key);
 
-    if (key === DARK_MODE_OPTIONS.system.key) {
+    if (store.key === DARK_MODE_OPTIONS.system.key) {
       systemTheme();
       return;
     }

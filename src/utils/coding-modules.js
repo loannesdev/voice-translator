@@ -1,4 +1,4 @@
-import { RADIO_ALPHABETICAL_DICTIONARY } from "./constans";
+import { RADIO_ALPHABETICAL_DICTIONARY } from "./constants";
 
 export const binary = (text) => {
   const splitText = text.trim().split("");

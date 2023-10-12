@@ -1,7 +1,6 @@
 import store from "../store";
-import { TRANSLATE_OPTIONS } from "../utils/constans";
+import { TRANSLATE_OPTIONS } from "../utils/constants";
 
-const options = TRANSLATE_OPTIONS;
 const buttonClass = "h-min border border-zinc-200 hover:bg-zinc-100 rounded py-0.5 px-2 gap-0.5 dark:bg-[#fafafa26] dark:hover:border-sky-300";
 const buttonSelectedClass = "border-sky-300 font-medium dark:text-sky-300";
 
@@ -12,7 +11,7 @@ export default function Options() {
 
       <div className="flex gap-2 items-center flex-wrap">
         {
-          options.map(({ icon, text, keyWord }) => {
+          TRANSLATE_OPTIONS.map(({ icon, text, keyWord }) => {
             return (
               <button
                 className={store.option.value === keyWord ? `${buttonClass} ${buttonSelectedClass}` : buttonClass}
