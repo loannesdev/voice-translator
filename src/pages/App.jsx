@@ -27,7 +27,7 @@ export default function App() {
           <Options />
 
           <section className="flex gap-3 flex-col">
-            <div className="flex gap-2 items-center max-sm:flex-wrap">
+            <div className="flex gap-2 items-center max-sm:flex-wrap justify-center">
               <button
                 className="bg-blue-600 text-slate-50 w-full rounded p-3 font-extrabold enabled:active:bg-blue-500 transition-colors enabled:hover:bg-blue-700 leading-none disabled:opacity-30"
                 onClick={() => {
