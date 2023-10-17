@@ -47,7 +47,9 @@ const accentLetters = {
 }
 
 export const morse = (text) => {
-  const result = text.split("").map((letter) => {
+  const parsedText = text.toLowerCase().split("");
+
+  const result = parsedText.map((letter) => {
     if (MORSE_DICTIONARY[letter]) {
       return MORSE_DICTIONARY[letter];
     }
