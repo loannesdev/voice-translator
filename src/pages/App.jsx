@@ -5,16 +5,15 @@ import Options from "../components/Options";
 import TextArea from "../components/TextArea";
 import { speechRecognitionSupport, startListening, stopListening } from "../services/speech-recognition";
 import store from "../store";
-import { TRANSLATE_OPTIONS } from "../utils/constants";
+import { secondTextAssignment } from "../utils/functions";
 
 store.option.subscribe(() => {
-  const optSelected = TRANSLATE_OPTIONS.find((elm) => elm.keyWord === store.option.value);
+  secondTextAssignment();
+});
 
-  if (optSelected?.action) {
-    const { action } = optSelected;
-    store.secondText.value = action(store.firstText.value);
-  }
-})
+store.firstText.subscribe(() => {
+  secondTextAssignment();
+});
 
 export default function App() {
   return (

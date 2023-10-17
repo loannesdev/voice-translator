@@ -1,5 +1,5 @@
 import store from "../store";
-import { DARK_MODE_OPTIONS } from "./constants";
+import { DARK_MODE_OPTIONS, TRANSLATE_OPTIONS } from "./constants";
 
 const systemTheme = () => {
   if (DARK_MODE_OPTIONS.system.key === store.darkMode.value?.key) {
@@ -48,3 +48,12 @@ export const initializeDarkTheme = () => {
     document.documentElement.setAttribute("data-theme", selectedKey);
   });
 };
+
+export const secondTextAssignment = () => {
+  const optSelected = TRANSLATE_OPTIONS.find((elm) => elm.keyWord === store.option.value);
+
+  if (optSelected?.action) {
+    const { action } = optSelected;
+    store.secondText.value = action(store.firstText.value);
+  }
+}
