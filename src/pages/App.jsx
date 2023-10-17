@@ -7,12 +7,14 @@ import { speechRecognitionSupport, startListening, stopListening } from "../serv
 import store from "../store";
 import { TRANSLATE_OPTIONS } from "../utils/constants";
 
-const handlerSpeechConverter = () => {
+store.option.subscribe(() => {
   const optSelected = TRANSLATE_OPTIONS.find((elm) => elm.keyWord === store.option.value);
-  const { action } = optSelected;
 
-  return action(store.firstText.value) ?? store.firstText.value;
-};
+  if (optSelected?.action) {
+    const { action } = optSelected;
+    store.secondText.value = action(store.firstText.value);
+  }
+})
 
 export default function App() {
   return (
@@ -61,7 +63,7 @@ export default function App() {
 
           {
             store.option.value !== "text" && (
-              <TextArea text={handlerSpeechConverter()} flag="second" />
+              <TextArea text={store.secondText.value} flag="second" />
             )
           }
         </section>

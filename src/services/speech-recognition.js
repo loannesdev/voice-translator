@@ -31,7 +31,7 @@ if (speechRecognitionSupport()) {
       newText = newText.slice(0, -1);
     }
 
-    store.firstText.value = newText;
+    store.firstText.value = newText.trim();
   };
 
   recognition.onerror = (event) => {

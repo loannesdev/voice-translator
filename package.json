@@ -1,7 +1,7 @@
 {
   "name": "voice-translator",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "host": "vite --host",
     "phoenix:windows": "del /f package-lock.json & rd /s /q node_modules & npm install",
-    "linter": "eslint ./src/"
+    "linter:fix": "eslint --fix ./src/",
+    "linter:check": "eslint ./src/"
   },
   "dependencies": {
     "@preact/signals": "1.1.2",

@@ -5,7 +5,7 @@ import { ReactComponent as InputLatinLettersIcon } from "../assets/icons/input-l
 import { ReactComponent as MoonIcon } from "../assets/icons/moon.svg";
 import { ReactComponent as RegionalIndicatorZIcon } from "../assets/icons/regional-indicator-z.svg";
 import { ReactComponent as SunIcon } from "../assets/icons/sun.svg";
-import { binary, radioAlphabet } from "./coding-modules";
+import { binary, morse, radioAlphabet } from "./coding-modules";
 
 const translateOptionsIcons = "h-10 w-10";
 const iconsDarkModeClass = "h-6 w-6";
@@ -49,20 +49,19 @@ export const TRANSLATE_OPTIONS = [
     keyWord: "binary",
     text: "Binario",
     icon: <FloppyDiskIcon className={translateOptionsIcons} />,
-    action: (param) => binary(param)
+    action: (txt) => binary(txt)
   },
   {
     keyWord: "radiophonicAlphabet",
     text: "Alfabeto radiofónico",
     icon: <RegionalIndicatorZIcon className={translateOptionsIcons} />,
-    action: (param) => radioAlphabet(param)
+    action: (txt) => radioAlphabet(txt)
   },
   {
     keyWord: "morseCode",
     text: "Código morse",
     icon: <IbeaconIcon className={translateOptionsIcons} />,
-    action: (param) => {
-    }
+    action: (txt) => morse(txt)
   }
 ];
 
@@ -83,3 +82,48 @@ export const DARK_MODE_OPTIONS = {
     icon: <ComputerIcon className={iconsDarkModeClass} />
   }
 };
+
+export const MORSE_DICTIONARY = {
+  a: ".-",
+  b: "-...",
+  c: "-.-.",
+  d: "-..",
+  e: "·",
+  f: "..-.",
+  g: "--.",
+  h: "....",
+  i: "..",
+  j: ".---",
+  k: "-.-",
+  l: ".-..",
+  m: "--",
+  n: "-",
+  ñ: "--.--",
+  o: "---",
+  p: ".--.",
+  q: "--.-",
+  r: ".-.",
+  s: "...",
+  t: "-",
+  u: "..-",
+  v: "...-",
+  w: ".--",
+  x: "-..-",
+  y: "-.--",
+  z: "--..",
+  0: "-----",
+  1: ".----",
+  2: "..---",
+  3: "...--",
+  4: "....-",
+  5: ".....",
+  6: "-....",
+  7: "--...",
+  8: "---..",
+  9: "----.",
+  " ": "/",
+  ".": ".-.-.-",
+  ",": "--..--",
+  "?": "..--..",
+  "!": "-.-.--",
+}
