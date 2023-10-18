@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
-import { ReactComponent as Broom } from "../assets/icons/broom.svg";
-import { ReactComponent as Duplicate } from "../assets/icons/duplicate.svg";
-import { ReactComponent as SpeakerHighVolume } from "../assets/icons/speaker-high-volume.svg";
+import Broom from "../assets/icons/broom.svg?react";
+import Duplicate from "../assets/icons/duplicate.svg?react";
+import SpeakerHighVolume from "../assets/icons/speaker-high-volume.svg?react";
 import { readText } from "../services/speech-synthesis";
 import store from "../store";
 

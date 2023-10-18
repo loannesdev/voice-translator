@@ -1,5 +1,5 @@
 import { Toaster } from "react-hot-toast";
-import { ReactComponent as StudioMicrophone } from "../assets/icons/studio-microphone.svg";
+import StudioMicrophone from "../assets/icons/studio-microphone.svg?react";
 import Header from "../components/Header";
 import Options from "../components/Options";
 import TextArea from "../components/TextArea";

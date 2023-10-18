@@ -1,12 +1,11 @@
-import { ReactComponent as ComputerIcon } from "../assets/icons/computer.svg";
-import { ReactComponent as FloppyDiskIcon } from "../assets/icons/floppy-disk.svg";
-import { ReactComponent as IbeaconIcon } from "../assets/icons/ibeacon.svg";
-import { ReactComponent as InputLatinLettersIcon } from "../assets/icons/input-latin-letters.svg";
-import { ReactComponent as MoonIcon } from "../assets/icons/moon.svg";
-import { ReactComponent as RegionalIndicatorZIcon } from "../assets/icons/regional-indicator-z.svg";
-import { ReactComponent as SunIcon } from "../assets/icons/sun.svg";
+import ComputerIcon from "../assets/icons/computer.svg?react";
+import FloppyDiskIcon from "../assets/icons/floppy-disk.svg?react";
+import IbeaconIcon from "../assets/icons/ibeacon.svg?react";
+import InputLatinLettersIcon from "../assets/icons/input-latin-letters.svg?react";
+import MoonIcon from "../assets/icons/moon.svg?react";
+import RegionalIndicatorZIcon from "../assets/icons/regional-indicator-z.svg?react";
+import SunIcon from "../assets/icons/sun.svg?react";
 import { binary, morse, radioAlphabet } from "./coding-modules";
-
 
 export const RADIO_ALPHABETICAL_DICTIONARY = [
   "Alfa",
