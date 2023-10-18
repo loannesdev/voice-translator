@@ -1,9 +1,16 @@
-import { useState } from "preact/hooks";
+import { useMemo, useState } from "preact/hooks";
 import store from "../store";
 import { DARK_MODE_OPTIONS } from "../utils/constants";
 
+const iconsDarkModeClass = "h-6 w-6";
+
 export default function Header() {
   const [isDropdownActive, setIsDropdownActive] = useState(false);
+  const DarkModeIconButton = useMemo(() => {
+    return store.darkMode.value?.icon
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [store.darkMode.value])
 
   return (
     <header className="max-w-[80ch] w-full grid h-fit place-items-center sticky top-0 backdrop-blur-sm py-4">
@@ -15,7 +22,7 @@ export default function Header() {
           }}
           type="button"
         >
-          {store.darkMode.value?.icon}
+          <DarkModeIconButton className="w-6 h-6" />
         </button>
 
         <ul
@@ -24,9 +31,9 @@ export default function Header() {
         >
           {
             Object
-              .entries(DARK_MODE_OPTIONS)
-              .map(([_, item]) => {
-                const { text, icon, key } = item;
+              .values(DARK_MODE_OPTIONS)
+              .map((item) => {
+                const { text, icon: Icon, key } = item;
 
                 return (
                   <li key={key}>
@@ -38,10 +45,11 @@ export default function Header() {
                       className="flex items-center gap-2 w-full px-3 py-1.5 border-zinc-200 hover:bg-zinc-100 dark:hover:text-black dark:hover:border-cyan-50"
                       type="button"
                     >
-                      {icon} <span className="text-left text-sm font-semibold tracking-wide">{text}</span>
+                      <Icon className={iconsDarkModeClass} />
+                      <span className="text-left text-sm font-semibold tracking-wide">{text}</span>
                     </button>
                   </li>
-                );
+                )
               })
           }
         </ul>

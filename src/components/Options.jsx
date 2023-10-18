@@ -3,6 +3,7 @@ import { TRANSLATE_OPTIONS } from "../utils/constants";
 
 const buttonClass = "h-min border border-zinc-200 hover:bg-zinc-100 rounded py-0.5 px-2 gap-0.5 dark:bg-[#fafafa26] dark:hover:border-sky-300";
 const buttonSelectedClass = "border-sky-300 font-medium dark:text-sky-300";
+const translateOptionsIcons = "h-10 w-10";
 
 export default function Options() {
   return (
@@ -11,7 +12,7 @@ export default function Options() {
 
       <div className="flex gap-2 items-center flex-wrap">
         {
-          TRANSLATE_OPTIONS.map(({ icon, text, keyWord }) => {
+          TRANSLATE_OPTIONS.map(({ icon: Icon, text, keyWord }) => {
             return (
               <button
                 className={store.option.value === keyWord ? `${buttonClass} ${buttonSelectedClass}` : buttonClass}
@@ -21,7 +22,7 @@ export default function Options() {
                 key={keyWord}
               >
                 <div className="flex items-center gap-0.5">
-                  {icon}
+                  <Icon className={translateOptionsIcons} />
                   <span className="tracking-wide leading-none">{text}</span>
                 </div>
               </button>

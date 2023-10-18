@@ -4,5 +4,5 @@ import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [preact(), svgr()]
+  plugins: [preact(), svgr()],
 });

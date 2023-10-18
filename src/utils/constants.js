@@ -7,8 +7,6 @@ import { ReactComponent as RegionalIndicatorZIcon } from "../assets/icons/region
 import { ReactComponent as SunIcon } from "../assets/icons/sun.svg";
 import { binary, morse, radioAlphabet } from "./coding-modules";
 
-const translateOptionsIcons = "h-10 w-10";
-const iconsDarkModeClass = "h-6 w-6";
 
 export const RADIO_ALPHABETICAL_DICTIONARY = [
   "Alfa",
@@ -43,24 +41,24 @@ export const TRANSLATE_OPTIONS = [
   {
     keyWord: "text",
     text: "Texto",
-    icon: <InputLatinLettersIcon className={translateOptionsIcons} />
+    icon: InputLatinLettersIcon
   },
   {
     keyWord: "binary",
     text: "Binario",
-    icon: <FloppyDiskIcon className={translateOptionsIcons} />,
+    icon: FloppyDiskIcon,
     action: (txt) => binary(txt)
   },
   {
     keyWord: "radiophonicAlphabet",
     text: "Alfabeto radiofónico",
-    icon: <RegionalIndicatorZIcon className={translateOptionsIcons} />,
+    icon: RegionalIndicatorZIcon,
     action: (txt) => radioAlphabet(txt)
   },
   {
     keyWord: "morseCode",
     text: "Código morse",
-    icon: <IbeaconIcon className={translateOptionsIcons} />,
+    icon: IbeaconIcon,
     action: (txt) => morse(txt)
   }
 ];
@@ -69,17 +67,17 @@ export const DARK_MODE_OPTIONS = {
   light: {
     key: Symbol("light"),
     text: "Claro",
-    icon: <SunIcon className={iconsDarkModeClass} />
+    icon: SunIcon
   },
   dark: {
     key: Symbol("dark"),
     text: "Oscuro",
-    icon: <MoonIcon className={iconsDarkModeClass} />
+    icon: MoonIcon
   },
   system: {
     key: Symbol("system"),
     text: "Sistema",
-    icon: <ComputerIcon className={iconsDarkModeClass} />
+    icon: ComputerIcon
   }
 };
 
