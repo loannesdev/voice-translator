@@ -1,8 +1,8 @@
 import store from "../store";
 import { TRANSLATE_OPTIONS } from "../utils/constants";
 
-const buttonClass = "h-min border border-zinc-200 hover:bg-zinc-100 rounded py-0.5 px-2 gap-0.5 dark:bg-[#fafafa26] dark:hover:border-sky-300";
-const buttonSelectedClass = "border-sky-300 font-medium dark:text-sky-300";
+const buttonClass = "h-min border border-zinc-200 hover:bg-zinc-50 rounded py-0.5 px-2 gap-0.5 dark:bg-[#fafafa26] dark:hover:border-sky-300";
+const buttonSelectedClass = "border-sky-300 font-medium dark:text-sky-300 bg-zinc-100";
 const translateOptionsIcons = "h-10 w-10";
 
 export default function Options() {
