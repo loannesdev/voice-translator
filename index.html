@@ -6,10 +6,27 @@
   <link rel="icon" type="image/svg+xml" href="/speech-balloon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Voice translator</title>
+  <link rel="stylesheet" href="/global.css">
 </head>
 
 <body id="app">
   <script type="module" src="/src/main.jsx"></script>
+  <noscript>
+    <style>
+      :root {
+        display: grid;
+        place-content: center;
+        height: 100dvh;
+      }
+
+      h1 {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        text-align: center;
+        -webkit-text-stroke: 1.5px currentColor;
+      }
+    </style>
+    <h1>Debes activa JavaScript para que este sitio funcione correctamente.</h1>
+  </noscript>
 </body>
 
 </html>
