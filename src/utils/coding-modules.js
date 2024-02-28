@@ -19,20 +19,21 @@ export const binary = (text) => {
 };
 
 export const radioAlphabet = (text) => {
-  const parsedText = text.toLowerCase().split(" ");
+  const parsedText = text
+    .toLowerCase()
+    .split(" ");
   const dictionary = RADIO_ALPHABETICAL_DICTIONARY;
 
   const result = parsedText.map((section) => {
-    const sectionArray = section.split("");
+    const sectionArray = section.replaceAll(/[^a-zA-Z0-9]/g, "") // Replace all special characters
+      .split("");
 
     const parsedWord = sectionArray.map((letter) => {
       const foundLetter = dictionary.find((word) => word[0].toLowerCase() === letter);
       return foundLetter ?? letter;
     });
 
-    const isEqual = sectionArray.every((item, index) => item === parsedWord[index]);
-
-    return isEqual ? parsedWord.join("") : parsedWord.join("-");
+    return parsedWord.join("-");
   });
 
   return result.join(" ");
@@ -53,13 +54,12 @@ export const morse = (text) => {
     if (MORSE_DICTIONARY[letter]) {
       return MORSE_DICTIONARY[letter];
     }
-
     if (accentLetters[letter]) {
       return MORSE_DICTIONARY[accentLetters[letter]];
     }
 
-    return letter
+    return letter;
   })
 
-  return result.join(" ")
+  return result.join(" ");
 }
