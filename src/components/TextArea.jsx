@@ -59,7 +59,7 @@ export default function TextArea({ text, flag }) {
         )
       }
 
-      <textarea disabled className="border border-sky-300 rounded px-2 py-1 min-h-[200px] transition-all w-full dark:bg-[#fafafa1a]">
+      <textarea disabled className="border border-sky-300 rounded px-2 py-1 min-h-[200px] transition-all w-full dark:bg-[#fafafa1a] resize-none text:pretty">
         {text}
       </textarea>
     </section>
