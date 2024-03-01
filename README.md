@@ -2,8 +2,9 @@
 
 Con este traductor de voz multimodal, puedes convertir tu voz en texto, código e incluso señales de radio.
 
-> [!IMPORTANT]  
+> [!NOTE]  
 > Por el momento solo está disponible con el idioma Español.
+> Este proyecto utiliza las APIs SpeechRecognition y SpeechSynthesis nativas de la web para su correcto funcionamiento, esto permite descartar la necesidad de usar librerías de terceros para esta misma funcionalidad.
 
 ### Funciones:
 
@@ -14,5 +15,6 @@ Con este traductor de voz multimodal, puedes convertir tu voz en texto, código 
 
 <br />
 
-> [!NOTE]
-> Este proyecto utiliza las APIs SpeechRecognition y SpeechSynthesis nativas de la web para su correcto funcionamiento, esto permite descartar la necesidad de usar librerías de terceros para esta misma funcionalidad.
+> [!WARNING]
+> En algunos navegadores donde no se soporta SpeechRecognition y SpeechSynthesis mostrará un texto avisando que no es compatible.
+
